@@ -48,5 +48,38 @@ const gameBoard = (function() {
     return true;
   }
 
-  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical };
+  const checkDiagonalPossible = function(mark, row, col) {
+    if (
+      ((row == 0 || row == 2) && col == 1) || row == 1 && col ==1)
+      {
+      return false
+    }
+  }
+
+  const checkMatchDiagonalForward = function(mark, row, col) {
+    checkDiagonalPossible(mark, row, col);
+
+    for (let pos = 0; pos < 3; pos++){
+      if (getMark(pos, pos) != mark) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  const checkMatchDiagonalBackward = function(mark, row, col) {
+    checkDiagonalPossible(mark, row, col);
+
+    for (let pos = 0; pos < 3; pos++){
+      // We want the opposite-side column here
+      if (getMark(pos, 2-pos) != mark) {
+        return false;
+      }
+    }
+    
+    return true
+  }
+
+  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical, checkMatchDiagonalForward, checkMatchDiagonalBackward };
 })();
