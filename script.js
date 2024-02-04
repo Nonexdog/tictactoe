@@ -23,6 +23,12 @@ const gameBoard = (function() {
   }
 
   const getBoard = () => boardMatrix;
+  const setMark = function(mark, row, column) {
+    boardMatrix[row][column].assignValue(mark);
+  }
+  const getMark = function(row, column) {
+    return boardMatrix[row][column].getValue();
+  }
 
-  return { getBoard };
+  return { getBoard, setMark, getMark };
 })();
