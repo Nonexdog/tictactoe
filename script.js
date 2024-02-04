@@ -39,5 +39,14 @@ const gameBoard = (function() {
     return true;
   }
 
-  return { getBoard, setMark, getMark, checkMatchHorizontal };
+  const checkMatchVertical = function(mark, col) {
+    for (let row = 0; row < 3; row++){
+      if (getMark(row, col) != mark) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical };
 })();
