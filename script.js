@@ -30,7 +30,7 @@ const gameBoard = (function() {
     return boardMatrix[row][column].getValue();
   }
 
-  const checkMatchHorizontal = function(mark, row) {
+  const checkMatchHorizontal = function(mark, row, col) {
     for (let col = 0; col < 3; col++){
       if (getMark(row, col) != mark) {
         return false;
@@ -39,7 +39,7 @@ const gameBoard = (function() {
     return true;
   }
 
-  const checkMatchVertical = function(mark, col) {
+  const checkMatchVertical = function(mark, row, col) {
     for (let row = 0; row < 3; row++){
       if (getMark(row, col) != mark) {
         return false;
@@ -77,9 +77,26 @@ const gameBoard = (function() {
         return false;
       }
     }
-    
+
     return true
   }
 
-  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical, checkMatchDiagonalForward, checkMatchDiagonalBackward };
+  const winConditions = [
+    checkMatchDiagonalForward,
+    checkMatchDiagonalBackward,
+    checkMatchVertical,
+    checkMatchHorizontal
+  ];
+
+  const checkWin = function(mark, row, col) {
+    for (condition of winConditions) {
+      if (condition(mark, row, col)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical, checkMatchDiagonalForward, checkMatchDiagonalBackward, checkWin };
 })();
