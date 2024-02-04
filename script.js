@@ -30,5 +30,14 @@ const gameBoard = (function() {
     return boardMatrix[row][column].getValue();
   }
 
-  return { getBoard, setMark, getMark };
+  const checkMatchHorizontal = function(mark, row) {
+    for (let col = 0; col < 3; col++){
+      if (getMark(row, col) != mark) {
+        return false;
+      }
+    }
+    return true;
+  }
+
+  return { getBoard, setMark, getMark, checkMatchHorizontal };
 })();
