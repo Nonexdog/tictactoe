@@ -98,5 +98,30 @@ const gameBoard = (function() {
     return false;
   }
 
-  return { getBoard, setMark, getMark, checkMatchHorizontal, checkMatchVertical, checkMatchDiagonalForward, checkMatchDiagonalBackward, checkWin };
+  return { 
+    getBoard, 
+    setMark, 
+    getMark, 
+    checkMatchHorizontal, 
+    checkMatchVertical, 
+    checkMatchDiagonalForward, 
+    checkMatchDiagonalBackward, 
+    checkWin 
+  };
 })();
+
+function Player(mark) {
+  score = 0;
+
+  const getScore = () => score;
+  const addScore = () => score++;
+  const resetScore = () => score = 0;
+  const getMark = () => mark;
+
+  return { 
+    getScore, 
+    addScore, 
+    resetScore, 
+    getMark 
+  };
+};
