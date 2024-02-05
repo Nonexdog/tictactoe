@@ -110,6 +110,20 @@ const gameBoard = (function() {
   };
 })();
 
+const gameHandler = (function() {
+  let turnCount = 1;
+
+  const getTurnCount = () => turnCount;
+  const addTurnCount = () => turnCount++;
+  const resetTurnCount = () => turnCount = 0;
+
+  return { 
+    addTurnCount,
+    getTurnCount,
+    resetTurnCount 
+  };
+})();
+
 function Player(mark) {
   score = 0;
 
@@ -125,3 +139,4 @@ function Player(mark) {
     getMark 
   };
 };
+
