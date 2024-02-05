@@ -13,22 +13,23 @@ const gameBoard = (function() {
 
     const getValue = () => value;
     const assignValue = (newValue) => {
-      if (newValue === 0 || newValue === 'X' || newValue === 'O') {
+      if (newValue === 'X' || newValue === 'O') {
         value = newValue;
       }
     }
+    const resetValue = () => value = 0;
 
-    return { getValue, assignValue }
+    return { getValue, assignValue, resetValue }
 
   }
 
   const getBoard = () => boardMatrix;
   const setMark = function(mark, row, column) {
     boardMatrix[row][column].assignValue(mark);
-  }
+  };
   const getMark = function(row, column) {
     return boardMatrix[row][column].getValue();
-  }
+  };
 
   const checkMatchHorizontal = function(mark, row, col) {
     for (let col = 0; col < 3; col++){
@@ -99,7 +100,8 @@ const gameBoard = (function() {
   }
 
   return { 
-    getBoard, 
+    getBoard,
+    resetBoard,  
     setMark, 
     getMark, 
     checkMatchHorizontal, 
