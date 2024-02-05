@@ -31,7 +31,7 @@ const gameBoard = (function() {
       }
     }
   };
-  
+
   const setMark = function(mark, row, column) {
     boardMatrix[row][column].assignValue(mark);
   };
@@ -125,7 +125,7 @@ const gameHandler = (function() {
 
   const getTurnCount = () => turnCount;
   const addTurnCount = () => turnCount++;
-  const resetTurnCount = () => turnCount = 0;
+  const resetTurnCount = () => turnCount = 1;
 
   return { 
     addTurnCount,
