@@ -121,16 +121,27 @@ const gameBoard = (function() {
 })();
 
 const gameHandler = (function() {
-  let turnCount = 1;
+  let turnCount = 0;
+  let isWon = false;
+  let players = []
 
   const getTurnCount = () => turnCount;
   const addTurnCount = () => turnCount++;
-  const resetTurnCount = () => turnCount = 1;
+  const resetTurnCount = () => turnCount = 0;
+
+  const startGame = function (startingPlayer, secondPlayer) {
+    resetTurnCount();
+    isWon = false;
+    players[0] = startingPlayer;
+    players[1] = secondPlayer;
+    console.log(`Game start!! It is currently player ${1+(turnCount % 2)}'s turn!!`)
+  }
 
   return { 
     addTurnCount,
     getTurnCount,
-    resetTurnCount 
+    resetTurnCount,
+    startGame
   };
 })();
 
