@@ -24,6 +24,14 @@ const gameBoard = (function() {
   }
 
   const getBoard = () => boardMatrix;
+  const resetBoard = function() {
+    for (row of boardMatrix) {
+      for (column of row) {
+        column.resetValue();
+      }
+    }
+  };
+  
   const setMark = function(mark, row, column) {
     boardMatrix[row][column].assignValue(mark);
   };
