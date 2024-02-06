@@ -145,19 +145,21 @@ const gameHandler = (function() {
   };
 })();
 
-function Player(mark) {
+function Player(mark, name = '') {
   score = 0;
 
   const getScore = () => score;
   const addScore = () => score++;
   const resetScore = () => score = 0;
   const getMark = () => mark;
+  const getName = () => name;
 
   return { 
     getScore, 
     addScore, 
     resetScore, 
-    getMark 
+    getMark,
+    getName 
   };
 };
 
