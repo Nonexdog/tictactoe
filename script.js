@@ -132,9 +132,14 @@ const gameHandler = (function() {
   const startGame = function (startingPlayer, secondPlayer) {
     resetTurnCount();
     isWon = false;
+    gameBoard.resetBoard();
     players[0] = startingPlayer;
     players[1] = secondPlayer;
-    console.log(`Game start!! It is currently player ${1+(turnCount % 2)}'s turn!!`)
+    if (startingPlayer.getName()) {
+      console.log(`Game start!! It is currently ${startingPlayer.getName()}'s turn!!`);
+    } else {
+      console.log(`Game start!! It is currently player 1's turn!!`);
+    }
   }
 
   return { 
