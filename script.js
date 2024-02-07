@@ -15,6 +15,8 @@ const gameBoard = (function() {
     const assignValue = (newValue) => {
       if (newValue === 'X' || newValue === 'O') {
         value = newValue;
+      } else {
+        console.log('Invalid value!!');
       }
     }
     const resetValue = () => value = 0;
