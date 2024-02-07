@@ -124,6 +124,7 @@ const gameHandler = (function() {
   let turnCount = 0;
   let isWon = false;
   let players = []
+  let currentPlayer;
 
   const getTurnCount = () => turnCount;
   const addTurnCount = () => turnCount++;
@@ -135,6 +136,7 @@ const gameHandler = (function() {
     gameBoard.resetBoard();
     players[0] = startingPlayer;
     players[1] = secondPlayer;
+    currentPlayer = players[turnCount % 2];
     if (startingPlayer.getName()) {
       console.log(`Game start!! It is currently ${startingPlayer.getName()}'s turn!!`);
     } else {
@@ -142,11 +144,25 @@ const gameHandler = (function() {
     }
   }
 
+  const playTurn = function(row, column) {
+    currentMark = currentPlayer.getMark();
+    gameBoard.setMark(currentMark, row, column);
+    const hasWon = gameBoard.checkWin(currentMark, row, column);
+    if (hasWon) {
+      console.log(`${currentPlayer.getName()} wins!!`);
+    } else {
+      addTurnCount();
+      currentPlayer = players[turnCount % 2];
+      console.log(`It is now ${currentPlayer.getName()}'s turn!!`);
+    }
+  }
+
   return { 
     addTurnCount,
     getTurnCount,
     resetTurnCount,
-    startGame
+    startGame, 
+    playTurn
   };
 })();
 
