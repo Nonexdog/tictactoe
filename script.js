@@ -9,7 +9,7 @@ const gameBoard = (function() {
   }
 
   function mark() {
-    let value = 0;
+    let value = " ";
 
     const getValue = () => value;
     const assignValue = (newValue) => {
@@ -24,6 +24,20 @@ const gameBoard = (function() {
   }
 
   const getBoard = () => boardMatrix;
+  const displayBoard = function () {
+    const board = [];
+    let i = 0; 
+    for (row of boardMatrix) {
+      board[i] = [];
+
+      for (column of row) {
+        board[i].push(column.getValue());
+      }
+
+      i++;
+    }
+    return board;
+  }
   const resetBoard = function() {
     for (row of boardMatrix) {
       for (column of row) {
@@ -116,7 +130,8 @@ const gameBoard = (function() {
     checkMatchVertical, 
     checkMatchDiagonalForward, 
     checkMatchDiagonalBackward, 
-    checkWin 
+    checkWin,
+    displayBoard
   };
 })();
 
@@ -156,7 +171,7 @@ const gameHandler = (function() {
       updateCurrentPlayer();
       console.log(`It is now ${currentPlayer.getName()}'s turn!!`);
     }
-  }
+  };
 
   return { 
     addTurnCount,
