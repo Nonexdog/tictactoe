@@ -164,14 +164,18 @@ const gameHandler = (function() {
 
   const playTurn = function(row, column) {
     currentMark = currentPlayer.getMark();
-    gameBoard.setMark(currentMark, row, column);
-    const hasWon = gameBoard.checkWin(currentMark, row, column);
-    if (hasWon) {
-      console.log(`${currentPlayer.getName()} wins!!`);
+    if (gameBoard.getMark(row, column)) {
+      console.log("There's already a mark made in this spot!!")
     } else {
-      addTurnCount();
-      updateCurrentPlayer();
-      console.log(`It is now ${currentPlayer.getName()}'s turn!!`);
+      gameBoard.setMark(currentMark, row, column);
+      const hasWon = gameBoard.checkWin(currentMark, row, column);
+      if (hasWon) {
+        console.log(`${currentPlayer.getName()} wins!!`);
+      } else {
+        addTurnCount();
+        updateCurrentPlayer();
+        console.log(`It is now ${currentPlayer.getName()}'s turn!!`);
+      }
     }
   };
 
