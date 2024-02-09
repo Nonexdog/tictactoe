@@ -168,9 +168,9 @@ const gameHandler = (function() {
       console.log("There's already a mark made in this spot!!")
     } else {
       gameBoard.setMark(currentMark, row, column);
-      const hasWon = gameBoard.checkWin(currentMark, row, column);
-      if (hasWon) {
-        console.log(`${currentPlayer.getName()} wins!!`);
+      isWon = gameBoard.checkWin(currentMark, row, column);
+      if (isWon || turnCount > 8) {
+        console.log(finishGame());
       } else {
         addTurnCount();
         updateCurrentPlayer();
@@ -178,6 +178,17 @@ const gameHandler = (function() {
       }
     }
   };
+
+  const finishGame = function() {
+    resetTurnCount();
+    if (isWon) {
+      currentPlayer.addScore();
+      isWon = false;
+      return `${currentPlayer.getName()} wins!!`;
+    }
+
+    return `Seems like a tie...`;
+  }
 
   return { 
     addTurnCount,
