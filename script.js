@@ -140,7 +140,7 @@ const gameBoard = (function() {
 const gameHandler = (function() {
   let turnCount = 0;
   let isWon = false;
-  let players = []
+  const players = [];
   let currentPlayer;
 
   const getTurnCount = () => turnCount;
