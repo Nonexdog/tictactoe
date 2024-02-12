@@ -181,6 +181,9 @@ const gameHandler = (function() {
 
   const finishGame = function() {
     resetTurnCount();
+    gameBoard.resetBoard();
+
+    resetTurnCount();
     if (isWon) {
       currentPlayer.addScore();
       isWon = false;
