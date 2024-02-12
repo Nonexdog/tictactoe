@@ -170,6 +170,7 @@ const gameHandler = (function() {
 
     currentMark = currentPlayer.getMark();
     gameBoard.setMark(currentMark, row, column);
+    console.dir(gameBoard.displayBoard());
     isWon = gameBoard.checkWin(currentMark, row, column);
     if (isWon || turnCount > 8) {
       console.log(finishGame());
