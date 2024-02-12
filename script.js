@@ -9,7 +9,7 @@ const gameBoard = (function() {
   }
 
   function mark() {
-    let value = " ";
+    let value = 0;
 
     const getValue = () => value;
     const assignValue = (newValue) => {
