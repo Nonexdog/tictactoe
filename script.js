@@ -142,6 +142,7 @@ const gameHandler = (function() {
   let isWon = false;
   const players = [];
   let currentPlayer;
+  let isGamePlaying = false;
 
   const getTurnCount = () => turnCount;
   const addTurnCount = () => turnCount++;
@@ -149,6 +150,7 @@ const gameHandler = (function() {
   const updateCurrentPlayer = () => currentPlayer = players[turnCount % 2];
 
   const startGame = function (startingPlayer, secondPlayer) {
+    isGamePlaying = true;
     resetTurnCount();
     isWon = false;
     gameBoard.resetBoard();
@@ -163,6 +165,11 @@ const gameHandler = (function() {
   }
 
   const playTurn = function(row, column) {
+    if (!isGamePlaying) {
+      console.log("You haven't started a game yet!!");
+      return;
+    }
+
     if (gameBoard.getMark(row, column)) {
       console.log("There's already a mark made in this spot!!");
       return;
@@ -184,7 +191,7 @@ const gameHandler = (function() {
   const finishGame = function() {
     resetTurnCount();
     gameBoard.resetBoard();
-
+    isGamePlaying = false;
     resetTurnCount();
     if (isWon) {
       currentPlayer.addScore();
