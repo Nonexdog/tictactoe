@@ -1,3 +1,5 @@
+@use '_variables.scss';
+
 @font-face {
   font-family: 'Barcode';
   src: url('../fonts/Barcode.ttf');
@@ -6,4 +8,16 @@
 .title {
   font-size: 4em;
   font-family: 'Barcode', 'Courier New', Courier, monospace;
+}
+
+.grid-title {
+  background-color: var(--color-area-title);
+}
+
+.grid-gameboard {
+  background-color: var(--color-area-gameboard);
+}
+
+.grid-scoreboard {
+  background-color: var(--color-area-scoreboard);
 }
