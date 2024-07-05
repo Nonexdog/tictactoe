@@ -15,6 +15,11 @@ body {
   margin: 0;
 }
 
+.title {
+  text-align: center;
+  margin: auto;
+}
+
 @font-face {
   font-family: "Barcode";
   src: url("../fonts/Barcode.ttf");
