@@ -53,6 +53,8 @@ body {
   justify-content: stretch;
   width: 70dvh;
   height: 70dvh;
+  gap: 0.7rem;
+  padding: 0.7rem;
 }
 
 @font-face {
