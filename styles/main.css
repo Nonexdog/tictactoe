@@ -31,8 +31,13 @@ body {
 
 .grid-title {
   grid-area: title;
-  align-self: center;
-  justify-self: center;
+  align-content: center;
+}
+
+.grid-container {
+  display: flex;
+  align-items: center;
+  justify-items: center;
 }
 
 .title {
