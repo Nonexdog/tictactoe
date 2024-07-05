@@ -8,4 +8,13 @@ html {
 
 img {
   width: 100%;
+}
+
+@font-face {
+  font-family: "Barcode";
+  src: url("../fonts/Barcode.ttf");
+}
+.title {
+  font-size: 4em;
+  font-family: "Barcode", "Courier New", Courier, monospace;
 }/*# sourceMappingURL=main.css.map */
