@@ -231,3 +231,6 @@ function Player(mark, name = '') {
 
 const p1 = Player('X', 'Baknifo')
 const p2 = Player('O', 'Splungo')
+
+const DOMGameBoard = document.querySelectorAll('.game-button');
+console.dir(DOMGameBoard);
