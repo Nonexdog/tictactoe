@@ -232,5 +232,19 @@ function Player(mark, name = '') {
 const p1 = Player('X', 'Baknifo')
 const p2 = Player('O', 'Splungo')
 
-const DOMGameBoard = document.querySelectorAll('.game-button');
+const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
 console.dir(DOMGameBoard);
+
+// The method to get each coordinate should be a 
+// value between 0-2 for each. This means...
+// The first value should be division, 
+// the second is a modulo
+
+DOMGameBoard.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const index = DOMGameBoard.indexOf(btn);
+    const row = Math.floor(index / 3);
+    const col = index % 3;
+    console.table(row, col);
+  })
+});
