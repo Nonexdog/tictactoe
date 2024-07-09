@@ -243,13 +243,22 @@ console.dir(DOMGameBoard);
 // The first value should be division, 
 // the second is a modulo
 
-
+function changeBoardMark(row, col, btn) {
+  currentPlayer = gameHandler.returnCurrentPlayerInfo();
+  console.log(currentPlayer);
+  returnCode = gameHandler.playTurn(row, col);
+  
+  if (!returnCode) {
+    btn.textContent = currentPlayer[1];
+  }
+}
 
 DOMGameBoard.forEach(btn => {
   btn.addEventListener('click', () => {
     const index = DOMGameBoard.indexOf(btn);
     const row = Math.floor(index / 3);
     const col = index % 3;
+    changeBoardMark(row, col, btn);
     console.table(row, col);
   })
 });
