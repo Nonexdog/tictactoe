@@ -149,6 +149,8 @@ const gameHandler = (function() {
   const resetTurnCount = () => turnCount = 0;
   const updateCurrentPlayer = () => currentPlayer = players[turnCount % 2];
 
+  const returnCurrentPlayerInfo = () => [currentPlayer.getName(), currentPlayer.getMark()];
+
   const startGame = function (startingPlayer, secondPlayer) {
     isGamePlaying = true;
     resetTurnCount();
@@ -167,12 +169,12 @@ const gameHandler = (function() {
   const playTurn = function(row, column) {
     if (!isGamePlaying) {
       console.log("You haven't started a game yet!!");
-      return;
+      return 1;
     }
 
     if (gameBoard.getMark(row, column)) {
       console.log("There's already a mark made in this spot!!");
-      return;
+      return 2;
     }
 
     currentMark = currentPlayer.getMark();
@@ -206,6 +208,7 @@ const gameHandler = (function() {
     addTurnCount,
     getTurnCount,
     resetTurnCount,
+    returnCurrentPlayerInfo,
     startGame, 
     playTurn
   };
@@ -239,6 +242,8 @@ console.dir(DOMGameBoard);
 // value between 0-2 for each. This means...
 // The first value should be division, 
 // the second is a modulo
+
+
 
 DOMGameBoard.forEach(btn => {
   btn.addEventListener('click', () => {
