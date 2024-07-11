@@ -36,6 +36,7 @@ body {
 
 .grid-container {
   display: flex;
+  flex-direction: column;
   align-content: center;
   justify-content: center;
   padding: 2rem;
@@ -62,6 +63,10 @@ body {
   height: 4rem;
   font-size: 1.5rem;
   padding: 0.2rem;
+}
+
+.display-current-player {
+  margin: 1rem auto;
 }
 
 @font-face {
