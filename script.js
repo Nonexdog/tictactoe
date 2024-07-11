@@ -236,12 +236,11 @@ const p1 = Player('X', 'Baknifo')
 const p2 = Player('O', 'Splungo')
 
 const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
-console.dir(DOMGameBoard);
+const DOMButtonStart = document.querySelector('.button-start');
 
-// The method to get each coordinate should be a 
-// value between 0-2 for each. This means...
-// The first value should be division, 
-// the second is a modulo
+DOMButtonStart.addEventListener('click', () => {
+  gameHandler.startGame(p1, p2);
+});
 
 function changeBoardMark(row, col, btn) {
   currentPlayer = gameHandler.returnCurrentPlayerInfo();
