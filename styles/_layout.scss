@@ -58,3 +58,10 @@ body {
 .display-current-player {
   margin: 1rem auto;
 }
+
+.scoreboard {
+  display: flex;
+  justify-self: end;
+  flex-direction: column;
+  justify-content: space-between;
+}
