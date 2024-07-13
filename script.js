@@ -237,6 +237,10 @@ const p2 = Player('O', 'Splungo')
 
 const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
 const DOMButtonStart = document.querySelector('.button-start');
+const DOMNamePlayer1 = document.querySelector('.name-p1');
+const DOMNamePlayer2 = document.querySelector('.name-p2');
+const DOMScorePlayer1 = document.querySelector('score-p1');
+const DOMScorePlayer2 = document.querySelector('score-p2');
 
 DOMButtonStart.addEventListener('click', () => {
   gameHandler.startGame(p1, p2);
