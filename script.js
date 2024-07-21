@@ -235,38 +235,45 @@ function Player(mark, name = '') {
 const p1 = Player('X', 'Baknifo')
 const p2 = Player('O', 'Splungo')
 
-const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
-const DOMButtonStart = document.querySelector('.button-start');
-const DOMNamePlayer1 = document.querySelector('.name-p1');
-const DOMNamePlayer2 = document.querySelector('.name-p2');
-const DOMScorePlayer1 = document.querySelector('score-p1');
-const DOMScorePlayer2 = document.querySelector('score-p2');
-const DOMCurrentPlayer = document.querySelector('display-current-player');
+const DOMHandler = (function () {
 
-DOMButtonStart.addEventListener('click', () => {
-  gameHandler.startGame(p1, p2);
-  DOMButtonStart.textContent = "Restart game";
+  const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
+  const DOMButtonStart = document.querySelector('.button-start');
+  const DOMNamePlayer1 = document.querySelector('.name-p1');
+  const DOMNamePlayer2 = document.querySelector('.name-p2');
+  const DOMScorePlayer1 = document.querySelector('score-p1');
+  const DOMScorePlayer2 = document.querySelector('score-p2');
+  const DOMCurrentPlayer = document.querySelector('display-current-player');
+
   DOMGameBoard.forEach(btn => {
-    btn.textContent = "";
+    btn.addEventListener('click', () => {
+      const index = DOMGameBoard.indexOf(btn);
+      const row = Math.floor(index / 3);
+      const col = index % 3;
+      changeBoardMark(row, col, btn);
+      console.table(row, col);
+    })
   });
-});
 
-function changeBoardMark(row, col, btn) {
-  currentPlayer = gameHandler.returnCurrentPlayerInfo();
-  console.log(currentPlayer);
-  returnCode = gameHandler.playTurn(row, col);
-  
-  if (!returnCode) {
-    btn.textContent = currentPlayer[1];
+  DOMButtonStart.addEventListener('click', () => {
+    gameHandler.startGame(p1, p2);
+    DOMButtonStart.textContent = "Restart game";
+    DOMGameBoard.forEach(btn => {
+      btn.textContent = "";
+    });
+  });
+
+  function changeBoardMark(row, col, btn) {
+    currentPlayer = gameHandler.returnCurrentPlayerInfo();
+    console.log(currentPlayer);
+    returnCode = gameHandler.playTurn(row, col);
+    
+    if (!returnCode) {
+      btn.textContent = currentPlayer[1];
+    }
   }
-}
 
-DOMGameBoard.forEach(btn => {
-  btn.addEventListener('click', () => {
-    const index = DOMGameBoard.indexOf(btn);
-    const row = Math.floor(index / 3);
-    const col = index % 3;
-    changeBoardMark(row, col, btn);
-    console.table(row, col);
-  })
-});
+  return {
+    changeBoardMark
+  }
+})()
