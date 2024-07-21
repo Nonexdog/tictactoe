@@ -244,6 +244,10 @@ const DOMScorePlayer2 = document.querySelector('score-p2');
 
 DOMButtonStart.addEventListener('click', () => {
   gameHandler.startGame(p1, p2);
+  DOMButtonStart.textContent = "Restart game";
+  DOMGameBoard.forEach(btn => {
+    btn.textContent = "";
+  });
 });
 
 function changeBoardMark(row, col, btn) {
