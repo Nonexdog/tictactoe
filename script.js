@@ -267,6 +267,18 @@ const DOMHandler = (function () {
     });
   });
 
+  function disableButtons () {
+    DOMGameBoard.forEach(btn => {
+      btn.setAttribute('disabled',''); 
+    })
+  }
+
+  function reenableButtons () {
+    DOMGameBoard.forEach(btn => {
+      btn.removeAttribute('disabled'); 
+    })
+  }
+
   function changeBoardMark(row, col, btn) {
     currentPlayer = gameHandler.returnCurrentPlayerInfo();
     console.log(currentPlayer);
@@ -283,6 +295,8 @@ const DOMHandler = (function () {
 
   return {
     changeBoardMark,
-    updateCurrentPlayer
+    updateCurrentPlayer,
+    disableButtons,
+    reenableButtons
   }
 })()
