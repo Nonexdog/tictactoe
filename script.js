@@ -195,18 +195,20 @@ const gameHandler = (function() {
 
   const finishGame = function() {
     DOMHandler.disableButtons();
-    resetTurnCount();
     gameBoard.resetBoard();
     isGamePlaying = false;
-    resetTurnCount();
     if (isWon) {
       currentPlayer.addScore();
+      DOMHandler.updateScore(turnCount, currentPlayer.getScore());
+      resetTurnCount();
       isWon = false;
       DOMHandler.updateCurrentPlayer(`${currentPlayer.getName()} wins!!`);
       return `${currentPlayer.getName()} wins!!`;
     }
     DOMHandler.updateCurrentPlayer(`Seems like a tie...`);
+    resetTurnCount();
     return `Seems like a tie...`;
+    
   }
 
   return { 
