@@ -246,6 +246,7 @@ const DOMHandler = (function () {
 
   const DOMGameBoard = Array.from(document.querySelectorAll('.game-button'));
   const DOMButtonStart = document.querySelector('.button-start');
+  const DOMButtonReset = document.querySelector('.button-reset');
   const DOMNamePlayer1 = document.querySelector('.name-p1');
   const DOMNamePlayer2 = document.querySelector('.name-p2');
   const DOMScorePlayer1 = document.querySelector('.score-p1');
@@ -273,6 +274,15 @@ const DOMHandler = (function () {
     });
     reenableButtons();
   });
+
+  DOMButtonReset.addEventListener('click', () => {
+    if (confirm('Do you really want to reset scores?')) {
+      p1.resetScore();
+      p2.resetScore();
+      DOMScorePlayer1.textContent = 0;
+      DOMScorePlayer2.textContent = 0;
+    }
+  })
 
   function disableButtons () {
     DOMGameBoard.forEach(btn => {
