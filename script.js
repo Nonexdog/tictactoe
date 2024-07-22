@@ -304,11 +304,19 @@ const DOMHandler = (function () {
     playerScores[turn % 2].textContent = score;
   }
 
+  function updateNames(play1, play2) {
+    DOMNamePlayer1.textContent = play1.getName();
+    DOMNamePlayer2.textContent = play2.getName();
+  }
+
   return {
     changeBoardMark,
     updateCurrentPlayer,
     disableButtons,
     reenableButtons,
-    updateScore
+    updateScore,
+    updateNames
   }
 })()
+
+DOMHandler.updateNames(p1, p2);
