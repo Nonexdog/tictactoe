@@ -273,7 +273,12 @@ const DOMHandler = (function () {
     }
   }
 
+  function updateCurrentPlayer(text) {
+    DOMCurrentPlayer.textContent = text;
+  }
+
   return {
-    changeBoardMark
+    changeBoardMark,
+    updateCurrentPlayer
   }
 })()
