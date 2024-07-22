@@ -113,7 +113,7 @@ body {
 
 .game-button {
   background-color: black;
-  border: 0.5rem solid yellow;
+  border: none;
 }
 .game-button:disabled {
   border: 0.5rem dashed yellow;

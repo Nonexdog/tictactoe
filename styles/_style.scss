@@ -28,7 +28,7 @@
 
 .game-button {
   background-color: black;
-  border: .5rem solid yellow;
+  border: none;
   &:disabled {
     border: .5rem dashed yellow;
     color: yellow;
