@@ -255,6 +255,7 @@ const DOMHandler = (function () {
       const row = Math.floor(index / 3);
       const col = index % 3;
       changeBoardMark(row, col, btn);
+      btn.setAttribute('disabled','');
       console.table(row, col);
     })
   });
