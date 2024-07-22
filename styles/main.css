@@ -54,7 +54,6 @@ body {
 }
 
 .gameboard {
-  background-color: white;
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
   justify-content: stretch;
@@ -97,14 +96,21 @@ body {
 
 .grid-title {
   background-color: var(--color-area-title);
+  background-color: black;
 }
 
 .grid-gameboard {
   background-color: var(--color-area-gameboard);
+  background: linear-gradient(#000 20%, magenta);
+}
+
+.gameboard {
+  background: linear-gradient(cyan, yellow);
 }
 
 .grid-scoreboard {
   background-color: var(--color-area-scoreboard);
+  background: linear-gradient(rgb(168, 13, 168), #000);
 }
 
 .scoreboard {
@@ -117,5 +123,9 @@ body {
 }
 .game-button:disabled {
   border: 0.5rem dashed yellow;
+  color: yellow;
+}
+
+.title {
   color: yellow;
 }/*# sourceMappingURL=main.css.map */

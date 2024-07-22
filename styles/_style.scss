@@ -12,14 +12,21 @@
 
 .grid-title {
   background-color: var(--color-area-title);
+  background-color: black;
 }
 
 .grid-gameboard {
   background-color: var(--color-area-gameboard);
+  background: linear-gradient(#000 20%, magenta);
+}
+
+.gameboard {
+  background: linear-gradient(cyan, yellow);
 }
 
 .grid-scoreboard {
   background-color: var(--color-area-scoreboard);
+  background: linear-gradient(rgb(168, 13, 168), #000);
 }
 
 .scoreboard {
@@ -33,4 +40,8 @@
     border: .5rem dashed yellow;
     color: yellow;
   }
+}
+
+.title {
+  color: yellow;
 }
