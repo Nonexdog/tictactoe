@@ -250,6 +250,8 @@ const DOMHandler = (function () {
   const DOMScorePlayer2 = document.querySelector('.score-p2');
   const DOMCurrentPlayer = document.querySelector('.display-current-player');
 
+  const playerScores = [DOMScorePlayer1, DOMScorePlayer2];
+
   DOMGameBoard.forEach(btn => {
     btn.addEventListener('click', () => {
       const index = DOMGameBoard.indexOf(btn);
@@ -296,10 +298,15 @@ const DOMHandler = (function () {
     DOMCurrentPlayer.textContent = text;
   }
 
+  function updateScore(turn, score) {
+    playerScores[turn % 2].textContent = score;
+  }
+
   return {
     changeBoardMark,
     updateCurrentPlayer,
     disableButtons,
-    reenableButtons
+    reenableButtons,
+    updateScore
   }
 })()
