@@ -246,8 +246,8 @@ const DOMHandler = (function () {
   const DOMButtonStart = document.querySelector('.button-start');
   const DOMNamePlayer1 = document.querySelector('.name-p1');
   const DOMNamePlayer2 = document.querySelector('.name-p2');
-  const DOMScorePlayer1 = document.querySelector('score-p1');
-  const DOMScorePlayer2 = document.querySelector('score-p2');
+  const DOMScorePlayer1 = document.querySelector('.score-p1');
+  const DOMScorePlayer2 = document.querySelector('.score-p2');
   const DOMCurrentPlayer = document.querySelector('.display-current-player');
 
   DOMGameBoard.forEach(btn => {
