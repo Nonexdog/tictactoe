@@ -160,8 +160,10 @@ const gameHandler = (function() {
     players[1] = secondPlayer;
     updateCurrentPlayer()
     if (startingPlayer.getName()) {
+      DOMHandler.updateCurrentPlayer(`Game start!! It is currently ${startingPlayer.getName()}'s turn!!`);
       console.log(`Game start!! It is currently ${startingPlayer.getName()}'s turn!!`);
     } else {
+      DOMHandler.updateCurrentPlayer(`Game start!! It is currently player 1's turn!!`);
       console.log(`Game start!! It is currently player 1's turn!!`);
     }
   }
@@ -186,6 +188,7 @@ const gameHandler = (function() {
     } else {
       addTurnCount();
       updateCurrentPlayer();
+      DOMHandler.updateCurrentPlayer(`It is now ${currentPlayer.getName()}'s turn!!`);
       console.log(`It is now ${currentPlayer.getName()}'s turn!!`);
     }
   };
@@ -198,9 +201,10 @@ const gameHandler = (function() {
     if (isWon) {
       currentPlayer.addScore();
       isWon = false;
+      DOMHandler.updateCurrentPlayer(`${currentPlayer.getName()} wins!!`);
       return `${currentPlayer.getName()} wins!!`;
     }
-
+    DOMHandler.updateCurrentPlayer(`Seems like a tie...`);
     return `Seems like a tie...`;
   }
 
@@ -243,7 +247,7 @@ const DOMHandler = (function () {
   const DOMNamePlayer2 = document.querySelector('.name-p2');
   const DOMScorePlayer1 = document.querySelector('score-p1');
   const DOMScorePlayer2 = document.querySelector('score-p2');
-  const DOMCurrentPlayer = document.querySelector('display-current-player');
+  const DOMCurrentPlayer = document.querySelector('.display-current-player');
 
   DOMGameBoard.forEach(btn => {
     btn.addEventListener('click', () => {
