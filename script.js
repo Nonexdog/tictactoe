@@ -194,6 +194,7 @@ const gameHandler = (function() {
   };
 
   const finishGame = function() {
+    DOMHandler.disableButtons();
     resetTurnCount();
     gameBoard.resetBoard();
     isGamePlaying = false;
@@ -266,6 +267,7 @@ const DOMHandler = (function () {
     DOMGameBoard.forEach(btn => {
       btn.textContent = "";
     });
+    reenableButtons();
   });
 
   function disableButtons () {
