@@ -222,7 +222,7 @@ const gameHandler = (function() {
 })();
 
 function Player(mark, name = '') {
-  score = 0;
+  let score = 0;
 
   const getScore = () => score;
   const addScore = () => score++;
@@ -239,8 +239,8 @@ function Player(mark, name = '') {
   };
 };
 
-const p1 = Player('X', 'Baknifo')
-const p2 = Player('O', 'Splungo')
+const p1 = Player('X', 'Baknifo');
+const p2 = Player('O', 'Splungo');
 
 const DOMHandler = (function () {
 
