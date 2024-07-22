@@ -4,8 +4,13 @@
   --color-area-scoreboard: #444;
 }
 
+@font-face {
+  font-family: spacemono;
+  src: url("../fonts/Space_Mono/SpaceMono-Regular.ttf");
+}
 html {
   box-sizing: border-box;
+  font-family: spacemono;
 }
 
 *, *::after, *::before {
@@ -104,4 +109,13 @@ body {
 
 .scoreboard {
   text-align: center;
+}
+
+.game-button {
+  background-color: black;
+  border: 0.5rem solid yellow;
+}
+.game-button:disabled {
+  border: 0.5rem dashed yellow;
+  color: yellow;
 }/*# sourceMappingURL=main.css.map */

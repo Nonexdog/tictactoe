@@ -25,3 +25,12 @@
 .scoreboard {
   text-align: center;
 }
+
+.game-button {
+  background-color: black;
+  border: .5rem solid yellow;
+  &:disabled {
+    border: .5rem dashed yellow;
+    color: yellow;
+  }
+}

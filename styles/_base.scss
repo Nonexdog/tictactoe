@@ -1,5 +1,11 @@
+@font-face {
+  font-family: spacemono;
+  src: url('../fonts/Space_Mono/SpaceMono-Regular.ttf');
+}
+
 html {
   box-sizing: border-box;
+  font-family: spacemono;
 }
 
 *, *::after, *::before {
