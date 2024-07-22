@@ -320,3 +320,4 @@ const DOMHandler = (function () {
 })()
 
 DOMHandler.updateNames(p1, p2);
+DOMHandler.disableButtons();
