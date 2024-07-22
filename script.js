@@ -183,7 +183,7 @@ const gameHandler = (function() {
     gameBoard.setMark(currentMark, row, column);
     console.dir(gameBoard.displayBoard());
     isWon = gameBoard.checkWin(currentMark, row, column);
-    if (isWon || turnCount > 8) {
+    if (isWon || turnCount > 7) {
       console.log(finishGame());
     } else {
       addTurnCount();
